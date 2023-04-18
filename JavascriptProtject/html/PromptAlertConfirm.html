@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>BOM - Alert Prompt Confirm Open Close</title>
+</head>
+
+<body>
+
+	<h1 id="id1" style="color: black;">Demo - Alert Prompt Confirm
+		dialogs</h1>
+	<button id="btn" onclick="AlertDialog()">Alert</button>
+	<button id="btn" onclick="PromptDialog()">Prompt</button>
+	<button id="btn" onclick="ConfirmDialog()">Confirm</button>
+	<button id="btn" onclick="OpenNewWindow()">Open New Window</button>
+	<button id="btn" onclick="CloseNewWindow()">Close New Window</button>
+	<button id="btn" onclick="getScreenDomension()">Screen Dimension</button>
+	<!-- executing function on button click -->
+	<p><span id="pid"><br></span>
+	<p>
+		Base n : <span id="BaseNum"><br></span> 
+		Expo m : <span id="ExpoNum"><br></span> 
+		Result n^m : <span id="result"><br></span>
+	</p>
+	<script type="text/javascript">
+
+		function getScreenDomension(){
+			document.getElementById("pid").innerHTML = "Screen dimension: "
+				+ screen.height + "x" + screen.width + " pixels";
+		}
+		function AlertDialog() {
+			alert("Please input the numbers n and m to compute n^m");
+		}
+		function PromptDialog() {
+			x = prompt("Please input the number n for base", 1);
+			y = prompt("Please input the number m for exponent", 1);
+			document.getElementById("BaseNum").innerHTML = x;
+			document.getElementById("ExpoNum").innerHTML = y;
+		}
+		function ConfirmDialog() {
+			var ans = confirm("Do you want to compute the result n^m?");
+			if (ans == true) {
+				document.getElementById("result").innerHTML = Math.pow(
+						Number(x), Number(y));
+			} else {
+				alert("So Sad!");
+				document.getElementById("result").innerHTML = 1;
+			}
+		}
+		function OpenNewWindow() {
+			newin = window.open("https://www.synechron.com/",
+					"Opened thru javascript", "width=200, height=100");
+		}
+		function CloseNewWindow() {
+			newin.close();
+		}
+	</script>
+</body>
+
+</html>

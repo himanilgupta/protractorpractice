@@ -1,0 +1,5 @@
+[
+{"username": "some","password": "admin", "msg":"Invalid username or password!", "element": "p.error-message.ng-binding"},
+{"username": "admin1","password": "admin2", "msg":"Invalid username or password!", "element": "p.error-message.ng-binding"},
+{"username": "Luke","password": "Skywalker","msg":"Hello Luke", "element": "p#greetings.ng-binding"}
+]

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Frame Demo</title>
+</head>
+<script type="text/javascript">
+	function getFrames() {
+		console.log("Total frames in the DOM: " + window.parent.frames.length);
+		console.log("Frame1 name: " + parent.document.getElementById("id_mainFrame").name);
+		 console.log("Frame2 name: " +parent.document.getElementById("id_sideFrame").name);
+		 console.log("Frame3 name: " +parent.document.getElementById("id_layoutFrame").name); 
+	}
+</script>
+<!-- <frameset cols="25%,*,25%" onload="getFrames()">
+	<frame src="PromptAlertConfirm.html" id="id_mainFrame" name="mainFrame">
+	<frame src="AddMultiply.html" id="id_sideFrame" name="sideFrame">
+	<frame src="jsForms.html" id="id_layoutFrame" name="layoutFrame">
+</frameset> -->
+<frameset rows="100,*" border="1" onload="getFrames()" >
+	<frame src="PromptAlertConfirm.html" name="mainFrame" id="id_mainFrame">
+	<frameset cols="200,*">
+		<frame src="AddMultiply.html" name="sideFrame" id="id_sideFrame">
+		<frame src="jsForms.html" name="layoutFrame" id="id_layoutFrame">
+	</frameset>
+</frameset>
+</html>

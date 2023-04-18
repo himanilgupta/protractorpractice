@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Introduction to Javascript Form</title>
+</head>
+<body>
+	<form name="myform" id="myform">
+		<input type="text" id="id_fname" name="nm_fname" value="First Name" />
+		<input type="text" id="id_lname" name="nm_lname" value="Last Name" />
+	</form>
+	<br>
+	<br>
+	<form name="myform2" id="myform2">
+		<input type="button" id="id_button" value="Click Here">
+		<input type="radio" id="id_java" name="course" value="java" />
+		<input type="radio" id="id_js" name="course" value="javascript" />
+		<input type="checkbox" id="id_chk" name="checkbox" value="1" />
+		<button id="id_btnTag">Just a Button</button>
+	</form>
+	<br>
+	<br>
+	<script>
+	document.write("<br> The name of first form is : " + window.document.forms["myform"].name);
+	document.write("<br> The name of second form is : " + document.forms["myform2"].name);
+	document.write("<br> The id the second form is : " + document["myform2"].id);
+	document.write("<br> Form2 can also be referenced as : " + document.myform2.name);
+	document.write("<br> Form1 can also be referenced as : " + document.forms[0].id);
+	document.write("<br>");
+
+	var x = document.getElementById("myform");
+	var y = document.getElementById("myform2");
+	document.write("<br>");
+
+	var elements1 = x.elements.length;
+	document.write("<br><br>The elements in form: " + x.name + " is :" + elements1);
+	document.write("<br>element details:");
+	for (let i = 0; i < elements1; i++) {
+	    let elementdetails = x.elements[i].id + ", " + x.elements[i].type + ", " + x.elements[i].name + ", "
+		    + x.elements[i].value;
+	    document.write("<br>" + (i + 1) + ". " + x.elements[i].tagName + " " + elementdetails);
+	}
+	if (y.hasChildNodes()) {
+	    elements1 = y.elements.length;
+	    document.write("<br><br>The elements in form: " + y.name + " is :" + elements1);
+	    document.write("<br>element details:");
+
+	    for (let i = 0; i < elements1; i++) {
+			if (y.elements[i].tagName !== "BUTTON") {
+			    elementdetails = y.elements[i].id + ", " + y.elements[i].type
+				    + ", " + y.elements[i].name + ", " + y.elements[i].value;
+			} else {
+			    elementdetails = y.elements[i].id + ", " + y.elements[i].textContent;
+			}
+			document.write("<br>" + (i + 1) + ". " + y.elements[i].tagName+","+ elementdetails);
+	    }
+	}
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<!-- BOM - window -> document, screen, location, navigator, history -->
+<body
+	onload="setTimeout(DisplayTime,5000);
+		setInterval(() => {
+    		document.getElementById('timeId').innerHTML=Date();
+		}, 3000)"
+>
+	<p id="timeId"></p>
+	<p id="winId"></p>
+	<p id="scrId"></p>
+	<p id="locId"></p>
+	<script>
+		document.getElementById("winId").innerHTML = " win Dimensions " + window.innerHeight + "x" + window.innerWidth;
+		document.getElementById("scrId").innerHTML = " scr Dimensions " + screen.height + "x" + screen.width;
+		
+		txt = location.hostname+"     "+location.href+"      "+location.protocol;
+		document.getElementById("locId").innerHTML = location.href; //" location " + txt		
+    </script>
+	<script>
+	    DisplayTime = ()=> {
+			document.getElementById("timeId").innerHTML=Date();
+		};
+    </script>
+</body>
+</html>

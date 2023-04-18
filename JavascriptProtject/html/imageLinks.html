@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Introduction to Javascript Images and Links</title>
+</head>
+<body>
+	<button onclick="createImage()">Click here to create image object</button>
+	<button onclick="createLink()">Click here to create link object</button>
+	<button onclick="getNoLink()">Click here to display #links</button>
+	<button onclick="deleteLink()">Click here to delete a link</button>
+	<button onclick="openLink()">Click here to create and open a link</button>
+	<a href="Google.com" target="_self">Google.com</a>  <!-- same window/tab -->
+	<a href="javascript.com" target="_parent">javascript.com</a>  <!--parent frame -->
+	<a href="company.com" target="_top">company.com</a> <!-- full window -->
+	<a href="learn.com" target="frame1">learn.com</a> <!-- frame name -->
+	<p id = "pid"/>
+	<script>
+	function createImage() {
+	    var x = document.createElement("IMG");
+	    x.setAttribute("src", "pond.jpg");
+	    x.setAttribute("width", "304");
+	    x.setAttribute("height", "228");
+	    x.setAttribute("alt", "The Pond");
+	    document.body.appendChild(x);
+	}
+	function createLink(link) {
+	    var x = document.createElement("A");
+	   	var t = document.createTextNode("Javascript Tutorials");
+	    x.setAttribute("href", "https://"+link);
+	    x.setAttribute("text", "Javascript Tutorials");
+	    x.setAttribute("target", "_blank"); //opens in new window	
+	    x.appendChild(t);
+	    document.body.appendChild(x);
+	  }
+	function getNoLink() {
+	    document.getElementById("pid").innerHTML = document.links.length;
+	    console.log(`document.links.length=${document.links.length}`)
+	}
+	function deleteLink(){
+	    ans=prompt("specify a link by name to delete");
+	    var linkelements = document.getElementsByTagName("a");
+	    for(let i=0;i<linkelements.length;i++){
+			if (linkelements[i].textContent==ans){
+			    linkelements[i].parentNode.removeChild(linkelements[i]);
+			}
+	    }
+	}
+	function openLink(){
+	    ans=prompt("specify a link by name to open");
+	    createLink(ans)
+	    window.open("https://"+ans)
+	}
+    </script>
+</body>

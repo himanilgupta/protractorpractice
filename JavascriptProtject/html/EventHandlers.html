@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>All Event Handlers in one place</title>
+<script src="../javascript/EventHandlers.js"></script>
+<script type="text/javascript">
+	window.onresize = function() {
+		document.getElementById("displaytext").innerHTML = "window size is: "
+				+ window.outerWidth + "x" + window.outerHeight + " px";
+	}
+	function mouseover(element) {
+		element.value = "Sorry! disabled";
+		element.disabled = true;
+	}
+	function mouseout(element) {
+		element.value = "Please click me";
+		element.disabled = false;
+	}
+</script>
+</head>
+<!-- 
+ form events
+ -----------
+ onblur - When a user leaves an input field
+ onchange - When a user changes the content of an input field/selects a dropdown value
+ onfocus - When an input field gets focus
+ onselect - When input text is selected
+ onsubmit - When a user clicks the submit button
+ onreset - When a user clicks the reset button
+ 
+ keyboard events
+ ---------------
+ onkeydown - When a user is pressing/holding down a key
+ onkeypress - When a user is pressing/holding down a key
+ onkeyup - When the user releases a key
+ 
+ mouse events
+ ------------
+ onmouseover/onmouseout - When the mouse passes over/out of an element/image
+ onmousedown/onmouseup - When pressing/releasing a mouse button
+ onclick - When element is clicked
+ ondblclick - When a element is double-clicked
+ 
+ document/window events
+ ----------------------
+ onload - When the page/image has been loaded
+ onerror - When an error occurs when loading an image
+ onunload - When the browser closes the document
+ onresize - When the browser window is resized
+ 	
+-->
+<body onload="checkCookies()">
+	<form accept-charset="UTF-8" action="http://www.google.com"
+		autocomplete="off" method="GET" target="_blank"
+		onsubmit="submitInput()">
+		Name:
+		<input id="name" name="name" type="text" value="" onblur="blurInput()" />
+		<input type="button" value="Please click me" id="button1"
+			onmouseover="mouseover(this)" onmouseout="mouseout(this)" />
+		<br> Javascript:
+		<input checked="checked" name="course" type="radio" value="javascript" />
+		Java:
+		<input name="course" type="radio" value="java" />
+		<br>
+		<textarea name="textarea" id="textarea" cols="50" rows="5"
+			onfocus="changecolor(this)" >Long text.</textarea>
+		<p id="dtext">Your key entered in the textarea above will appear
+			here</p>
+		<p id="displaytext"></p>
+		<br> Text Area background colour:
+		<select id="options"
+			onchange="displaySelected();changeTextAreaColor()">
+			<option selected="selected" value="1">Select a Color</option>
+			<option value="2">White</option>
+			<option value="3">Blue</option>
+			<option value="4">Magenta</option>
+		</select>
+		<br> Checkbox:
+		<input name="democheckbox" type="checkbox" value="1" />
+		<br>
+		<input type="submit" value="Submit">
+		<input type="reset" value="Reset">
+		<br>
+		<a title="synechron site" href="http://www.synechron.com">Synechron
+			website</a>
+		<br>
+		<a href="https://en.wikipedia.org/wiki/Pond" target="_blank">
+			<img src="pond.jpg" width="300" height="225" alt="internal photo"
+				id="photo"/>
+		</a>
+	</form>
+	<script type="text/javascript">
+		document.getElementById("textarea").onkeypress = function fnKeyPressed(event) {
+			var displaytext = document.getElementById("dtext");
+			displaytext.innerHTML = String.fromCharCode(event.which	|| event.keyCode);
+		}
+		document.getElementById("photo").addEventListener("error", function imageError() {
+		  alert("The image could not be loaded.");
+		});
+
+	
+	</script>
+</body>
+
+</html>

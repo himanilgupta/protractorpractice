@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body
+	onload="(function(){
+    document.write('I am self invoking...<br>');
+    document.write(mergeArrays([1,2],[3,4]));
+	})();"    
+>
+</body>
+<script type="text/javascript">
+    const mergeArrays = function(arr1, arr2) {
+	return arr1.concat(arr2);
+    }
+
+</script>
+</html>
