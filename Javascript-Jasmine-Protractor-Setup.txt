@@ -1,0 +1,44 @@
+Required
+1. JDK 8.0 and above
+2. Eclipse (Oxygen/Photon) for javascript
+
+Installation details ( in the order)
+
+1. install node.js - https://nodejs.org/en/download/ (windows installer or binary - 64 bit, installs in C:\Users\<user>\AppData\Roaming)
+2. verify -  @command prompt :  node --version
+3. install protractor  -> npm install -g protractor  (installs in C:\Users\<user>\AppData\Roaming\npm)
+4. verify - @command prompt : protractor --version
+5. install includes the following: protractor command line tool, webdriver-manager command line tool and Protractor API (library)
+6. Install Tern plugin for eclipse (no need to setup Jasmine with this, only install Protractor as above)
+7. Create Javascript project, create/copy conf.js (C:\Users\<user>\AppData\Roaming\npm\node_modules\protractor\example).
+8. convert the javascript project into Tern project (rt.click on project->configure->Tern Project)
+9. In the Tern plugins dialog - select Protract (Jasmine will be automatically selected) -> apply & close.
+
+To execute:
+1. create batch file to run protractor (conf.js)  - > single command - protractor conf.js - > save as <projectname>.bat
+2. From eclipse -> run->external tools -> external tools configurations-> select Program -> New Launch configuration -> rt. Panel -> Name: <Project name> -> Main tab -> location : browse workspace and select .bat file -> Working directory : browser workspace -> select project -> close.
+3. Now run from run icon or run menu.
+
+Install selenium server before execution
+1.@command prompt - webdriver-manager update (installs selenium server standalone, chrome and firefox drivers)
+2.@command prompt - webdriver-manager update --ie (installs IE driver)
+3.@command prompt - webdriver-manager update --versions.chrome=77.0.3865.120 (to update the chrome driver)
+4.@command prompt - webdriver-manager status (check the status of drivers)
+5.@command prompt - webdriver-manager clean (Clear out the server and driver files)
+6.@command prompt - webdriver-manager start (starts selenium server)
+
+Jasvascript with Jasmine
+1. download jasmine from https://github.com/jasmine/jasmine/releases
+2. extract the contents to <project> folder
+4. create javascript js files under src folder
+5. create jasmine spec js files under spec folder
+
+For datadriven use Jasmine Data Provider
+1.npm install -g jasmine-data-provider (installs in C:\Users\<user>\AppData\Roaming\npm\node_modules)
+
+Jasmine to HTML reporter
+1. from project folder - npm install -g protractor-jasmine2-html-reporter --save-dev (installs to project folder) or
+npm install -g protractor-jasmine2-html-reporter (installs in C:\Users\<user>\AppData\Roaming\npm\node_modules)
+2. specify in conf.js
+   -- require(path to protractor-jasmine2-html-reporter)
+   -- onPrepare function.
